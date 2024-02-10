@@ -122,7 +122,7 @@ struct ProfileView: View
                     .padding()
                     .keyboardType(.numberPad) // Set keyboard type to number pad
                 
-                TextField("Date of Birth (MM/DD/YYYY)", text: $name)
+                TextField("Date of Birth (MM/DD/YYYY)", text: $dateOfBirth)
                     .padding()
                 
                 Text("Gender:")
