@@ -7,11 +7,35 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct HomeView: View
+{
+    
+    @EnvironmentObject var manager: HealthManager
+    
+    var body: some View
+    {
+        
+        VStack
+        {
+            Image("trimmed")
+                .resizable()
+                .aspectRatio(contentMode: .fit
+                )
+                .foregroundStyle(.tint)
+            
+            Text("Level Up Your Health Journey")
+                .font(.system(size: 30))
+                .multilineTextAlignment(.center)
+                .bold()
+        }
+
+        
+        
     }
+    
+    
 }
+
 
 #Preview {
     HomeView()

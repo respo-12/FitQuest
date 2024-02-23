@@ -7,61 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB5FE22F2B86D27E00E42492 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE22E2B86D27E00E42492 /* HomeView.swift */; };
+		AB5FE2312B86D30800E42492 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE2302B86D30800E42492 /* ProfileView.swift */; };
+		AB5FE2352B86D4F200E42492 /* FitQuestTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE2342B86D4F200E42492 /* FitQuestTabView.swift */; };
+		AB5FE2372B86DEBF00E42492 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE2362B86DEBF00E42492 /* TrackView.swift */; };
+		AB5FE2392B86E9A700E42492 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE2382B86E9A700E42492 /* HealthManager.swift */; };
+		AB5FE23B2B8701DB00E42492 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */; };
+		AB5FE23D2B882A0B00E42492 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23C2B882A0B00E42492 /* SleepView.swift */; };
+		AB5FE23F2B8881DB00E42492 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23E2B8881DB00E42492 /* DietView.swift */; };
 		ABEF7DBF2B74C160009FB313 /* FitQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DBE2B74C160009FB313 /* FitQuestApp.swift */; };
 		ABEF7DC12B74C160009FB313 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DC02B74C160009FB313 /* DemoView.swift */; };
 		ABEF7DC32B74C162009FB313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEF7DC22B74C162009FB313 /* Assets.xcassets */; };
 		ABEF7DC62B74C162009FB313 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEF7DC52B74C162009FB313 /* Preview Assets.xcassets */; };
-		ABEF7DD02B74C162009FB313 /* FitQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DCF2B74C162009FB313 /* FitQuestTests.swift */; };
-		ABEF7DDA2B74C162009FB313 /* FitQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DD92B74C162009FB313 /* FitQuestUITests.swift */; };
-		ABEF7DDC2B74C162009FB313 /* FitQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DDB2B74C162009FB313 /* FitQuestUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ABEF7DCC2B74C162009FB313 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ABEF7DB32B74C160009FB313 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ABEF7DBA2B74C160009FB313;
-			remoteInfo = FitQuest;
-		};
-		ABEF7DD62B74C162009FB313 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ABEF7DB32B74C160009FB313 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ABEF7DBA2B74C160009FB313;
-			remoteInfo = FitQuest;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		AB02C9F52B86C5F900A29811 /* FitQuest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FitQuest.entitlements; sourceTree = "<group>"; };
+		AB5FE22E2B86D27E00E42492 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AB5FE2302B86D30800E42492 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AB5FE2342B86D4F200E42492 /* FitQuestTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestTabView.swift; sourceTree = "<group>"; };
+		AB5FE2362B86DEBF00E42492 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		AB5FE2382B86E9A700E42492 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
+		AB5FE23C2B882A0B00E42492 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
+		AB5FE23E2B8881DB00E42492 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
 		ABEF7DBB2B74C160009FB313 /* FitQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEF7DBE2B74C160009FB313 /* FitQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestApp.swift; sourceTree = "<group>"; };
 		ABEF7DC02B74C160009FB313 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		ABEF7DC22B74C162009FB313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABEF7DC52B74C162009FB313 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ABEF7DCB2B74C162009FB313 /* FitQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABEF7DCF2B74C162009FB313 /* FitQuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestTests.swift; sourceTree = "<group>"; };
-		ABEF7DD52B74C162009FB313 /* FitQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABEF7DD92B74C162009FB313 /* FitQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestUITests.swift; sourceTree = "<group>"; };
-		ABEF7DDB2B74C162009FB313 /* FitQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		ABEF7DB82B74C160009FB313 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEF7DC82B74C162009FB313 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEF7DD22B74C162009FB313 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,8 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				ABEF7DBD2B74C160009FB313 /* FitQuest */,
-				ABEF7DCE2B74C162009FB313 /* FitQuestTests */,
-				ABEF7DD82B74C162009FB313 /* FitQuestUITests */,
 				ABEF7DBC2B74C160009FB313 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,8 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				ABEF7DBB2B74C160009FB313 /* FitQuest.app */,
-				ABEF7DCB2B74C162009FB313 /* FitQuestTests.xctest */,
-				ABEF7DD52B74C162009FB313 /* FitQuestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,9 +68,18 @@
 		ABEF7DBD2B74C160009FB313 /* FitQuest */ = {
 			isa = PBXGroup;
 			children = (
+				AB02C9F52B86C5F900A29811 /* FitQuest.entitlements */,
 				ABEF7DE82B74C688009FB313 /* Resources */,
 				ABEF7DE92B74C6BC009FB313 /* ViewController */,
 				ABEF7DC42B74C162009FB313 /* Preview Content */,
+				AB5FE2342B86D4F200E42492 /* FitQuestTabView.swift */,
+				AB5FE22E2B86D27E00E42492 /* HomeView.swift */,
+				AB5FE23E2B8881DB00E42492 /* DietView.swift */,
+				AB5FE2362B86DEBF00E42492 /* TrackView.swift */,
+				AB5FE23C2B882A0B00E42492 /* SleepView.swift */,
+				AB5FE2302B86D30800E42492 /* ProfileView.swift */,
+				AB5FE2382B86E9A700E42492 /* HealthManager.swift */,
+				AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */,
 			);
 			path = FitQuest;
 			sourceTree = "<group>";
@@ -107,23 +90,6 @@
 				ABEF7DC52B74C162009FB313 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		ABEF7DCE2B74C162009FB313 /* FitQuestTests */ = {
-			isa = PBXGroup;
-			children = (
-				ABEF7DCF2B74C162009FB313 /* FitQuestTests.swift */,
-			);
-			path = FitQuestTests;
-			sourceTree = "<group>";
-		};
-		ABEF7DD82B74C162009FB313 /* FitQuestUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ABEF7DD92B74C162009FB313 /* FitQuestUITests.swift */,
-				ABEF7DDB2B74C162009FB313 /* FitQuestUITestsLaunchTests.swift */,
-			);
-			path = FitQuestUITests;
 			sourceTree = "<group>";
 		};
 		ABEF7DE82B74C688009FB313 /* Resources */ = {
@@ -163,42 +129,6 @@
 			productReference = ABEF7DBB2B74C160009FB313 /* FitQuest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ABEF7DCA2B74C162009FB313 /* FitQuestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ABEF7DE22B74C162009FB313 /* Build configuration list for PBXNativeTarget "FitQuestTests" */;
-			buildPhases = (
-				ABEF7DC72B74C162009FB313 /* Sources */,
-				ABEF7DC82B74C162009FB313 /* Frameworks */,
-				ABEF7DC92B74C162009FB313 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ABEF7DCD2B74C162009FB313 /* PBXTargetDependency */,
-			);
-			name = FitQuestTests;
-			productName = FitQuestTests;
-			productReference = ABEF7DCB2B74C162009FB313 /* FitQuestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		ABEF7DD42B74C162009FB313 /* FitQuestUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ABEF7DE52B74C162009FB313 /* Build configuration list for PBXNativeTarget "FitQuestUITests" */;
-			buildPhases = (
-				ABEF7DD12B74C162009FB313 /* Sources */,
-				ABEF7DD22B74C162009FB313 /* Frameworks */,
-				ABEF7DD32B74C162009FB313 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ABEF7DD72B74C162009FB313 /* PBXTargetDependency */,
-			);
-			name = FitQuestUITests;
-			productName = FitQuestUITests;
-			productReference = ABEF7DD52B74C162009FB313 /* FitQuestUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,14 +141,6 @@
 				TargetAttributes = {
 					ABEF7DBA2B74C160009FB313 = {
 						CreatedOnToolsVersion = 15.2;
-					};
-					ABEF7DCA2B74C162009FB313 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = ABEF7DBA2B74C160009FB313;
-					};
-					ABEF7DD42B74C162009FB313 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = ABEF7DBA2B74C160009FB313;
 					};
 				};
 			};
@@ -236,8 +158,6 @@
 			projectRoot = "";
 			targets = (
 				ABEF7DBA2B74C160009FB313 /* FitQuest */,
-				ABEF7DCA2B74C162009FB313 /* FitQuestTests */,
-				ABEF7DD42B74C162009FB313 /* FitQuestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,20 +172,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABEF7DC92B74C162009FB313 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEF7DD32B74C162009FB313 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,42 +179,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB5FE23F2B8881DB00E42492 /* DietView.swift in Sources */,
+				AB5FE2352B86D4F200E42492 /* FitQuestTabView.swift in Sources */,
+				AB5FE2312B86D30800E42492 /* ProfileView.swift in Sources */,
+				AB5FE23D2B882A0B00E42492 /* SleepView.swift in Sources */,
+				AB5FE22F2B86D27E00E42492 /* HomeView.swift in Sources */,
+				AB5FE23B2B8701DB00E42492 /* ActivityCardView.swift in Sources */,
 				ABEF7DC12B74C160009FB313 /* DemoView.swift in Sources */,
+				AB5FE2372B86DEBF00E42492 /* TrackView.swift in Sources */,
 				ABEF7DBF2B74C160009FB313 /* FitQuestApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEF7DC72B74C162009FB313 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABEF7DD02B74C162009FB313 /* FitQuestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABEF7DD12B74C162009FB313 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABEF7DDC2B74C162009FB313 /* FitQuestUITestsLaunchTests.swift in Sources */,
-				ABEF7DDA2B74C162009FB313 /* FitQuestUITests.swift in Sources */,
+				AB5FE2392B86E9A700E42492 /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ABEF7DCD2B74C162009FB313 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ABEF7DBA2B74C160009FB313 /* FitQuest */;
-			targetProxy = ABEF7DCC2B74C162009FB313 /* PBXContainerItemProxy */;
-		};
-		ABEF7DD72B74C162009FB313 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ABEF7DBA2B74C160009FB313 /* FitQuest */;
-			targetProxy = ABEF7DD62B74C162009FB313 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ABEF7DDD2B74C162009FB313 /* Debug */ = {
@@ -435,6 +319,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitQuest/FitQuest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitQuest/Preview Content\"";
@@ -442,6 +328,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access to enjoy our application's features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +341,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,6 +353,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FitQuest/FitQuest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FitQuest/Preview Content\"";
@@ -472,6 +362,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access to enjoy our application's features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -484,85 +375,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		ABEF7DE32B74C162009FB313 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8DV79V6J3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitQuest";
-			};
-			name = Debug;
-		};
-		ABEF7DE42B74C162009FB313 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8DV79V6J3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuestTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FitQuest";
-			};
-			name = Release;
-		};
-		ABEF7DE62B74C162009FB313 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8DV79V6J3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FitQuest;
-			};
-			name = Debug;
-		};
-		ABEF7DE72B74C162009FB313 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8DV79V6J3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.125Team.FitQuestUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FitQuest;
 			};
 			name = Release;
 		};
@@ -583,24 +399,6 @@
 			buildConfigurations = (
 				ABEF7DE02B74C162009FB313 /* Debug */,
 				ABEF7DE12B74C162009FB313 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ABEF7DE22B74C162009FB313 /* Build configuration list for PBXNativeTarget "FitQuestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ABEF7DE32B74C162009FB313 /* Debug */,
-				ABEF7DE42B74C162009FB313 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ABEF7DE52B74C162009FB313 /* Build configuration list for PBXNativeTarget "FitQuestUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ABEF7DE62B74C162009FB313 /* Debug */,
-				ABEF7DE72B74C162009FB313 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
