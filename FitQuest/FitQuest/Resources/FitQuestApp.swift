@@ -10,11 +10,18 @@ import SwiftUI
 @main
 struct FitQuestApp: App 
 {
+    
+    @StateObject var manager = HealthManager()
+    
     var body: some Scene
     {
-        WindowGroup 
+        
+        WindowGroup
         {
-            DemoView()
+            FitQuestTabView()
+                .environmentObject(manager)
+                
+            
         }
     }
 }
