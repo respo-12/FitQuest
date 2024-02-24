@@ -18,14 +18,14 @@ struct TrackView: View
         VStack
         {
          
-            LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2))
+            //Displays today's current steps
+            
+            LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)) 
             {
-                
-                ForEach(manager.activites.sorted(by: { $0.value.id < $1.value.id }), id: \.key) { item in ActivityCardView(activity: item.value)
-                }
-                
-                
+                ForEach(manager.activites.sorted(by: { $0.value.id < $1.value.id }), id: \.key) { item in ActivityCardView(activity: item.value)}
             }
+            
+            .padding(.horizontal)
             
         }
         

@@ -25,6 +25,7 @@ class HealthManager: ObservableObject
     
     init()
     {
+        
         let steps = HKQuantityType(.stepCount)
         
         let healthTypes: Set = [steps]
@@ -73,12 +74,12 @@ class HealthManager: ObservableObject
         
     }
     
-    func fetchTodayCalories()
-    {
-        
-        
-        
-    }
+//    func fetchTodayCalories()
+//    {
+//        
+//        
+//        
+//    }
     
 }
     

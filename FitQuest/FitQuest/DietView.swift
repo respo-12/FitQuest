@@ -11,7 +11,14 @@ struct DietView: View
 {
     var body: some View 
     {
-        Text("Hello, World!")
+        
+        VStack
+        {
+            Text("Enter Meal: ")
+            
+            Text("Calories: ")
+        }
+        
     }
 }
 
