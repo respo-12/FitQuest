@@ -31,12 +31,12 @@ struct ActivityCardView: View
                 .cornerRadius(15)
             
             
-            VStack(spacing: 10)
+            VStack(spacing: 20)
             {
                 HStack(alignment: .top)
                 {
                     
-                    VStack(alignment: .center, spacing: 5)
+                    VStack(alignment: .leading, spacing: 5)
                     {
                         
                         Text(activity.title)
@@ -54,7 +54,7 @@ struct ActivityCardView: View
                     
                 }
                 
-                .padding()
+//                .padding()
                 
                 Text(activity.amount)
                     .font(.system(size: 24))
@@ -69,5 +69,5 @@ struct ActivityCardView: View
 }
 
 #Preview {
-    ActivityCardView(activity: Activity(id: 0, title: "Daily Steps", subtitle: "Goal: 10,000", image: "figure.walk", amount: "5,000"))
+    ActivityCardView(activity: Activity(id: 0, title: "Today's Steps", subtitle: "Goal: 10,000", image: "figure.walk", amount: "5,000"))
 }
