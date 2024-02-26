@@ -9,10 +9,13 @@ import SwiftUI
 
 struct SleepView: View 
 {
-    @State private var selectedHour = 7 // Default hour
-    @State private var selectedMinute = 0 // Default minute
+//    @State private var selectedHour = 7 // Default hour
+//    @State private var selectedMinute = 0 // Default minute
     
     @State private var selectedTime = Date()
+    
+    
+    @State private var showingAlert = false
 
     var body: some View 
     {
@@ -48,19 +51,21 @@ struct SleepView: View
                             .labelsHidden()
                             .padding()
             
-            Button(action: {
-                // Action to get bedtime
-            }) {
-                Text("Get My Personalized BedTime")
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: 250)
-                    .background(Color.blue)
-                    .cornerRadius(10)
+            
+            Button("Get My Personalized BedTime")
+            {
+                showingAlert = true
+            }
+            .alert(isPresented: $showingAlert)
+            {
+                Alert(
+                    title: Text("Recommended Sleep Time"),
+                    message: Text("Your recommended sleep time is 10:00 PM"),
+                    dismissButton: .default(Text("Got it!"))
+                )
             }
             
-            
-            
+    
         }
     }
 }
