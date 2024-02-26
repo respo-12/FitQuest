@@ -146,6 +146,7 @@ struct ProfileView: View
     
     func saveUserInfo()
     {
+        
         if let ageValue = Int(ageString)
         {
             age = ageValue
@@ -180,8 +181,6 @@ struct ProfileView: View
         UserDefaults.standard.set(restaurant, forKey: "Restaurant")
         UserDefaults.standard.set(gym, forKey: "Gym")
         
-        
-    
             
     }
     

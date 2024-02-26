@@ -27,7 +27,7 @@ struct ActivityCardView: View
         
         ZStack
         {
-            Color(uiColor: .systemGray6)
+            Color(uiColor: .orange)
                 .cornerRadius(15)
             
             
@@ -40,30 +40,36 @@ struct ActivityCardView: View
                     {
                         
                         Text(activity.title)
-                            .font(.system(size: 16))
+                            .font(.system(size: 30))
+                            .bold()
                         
-                        Text(activity.subtitle)
-                            .font(.caption)
-                            .foregroundColor(.gray)
+//                        Text(activity.subtitle)
+//                            .font(.system(size: 15))
+//                            .foregroundColor(.white)
                     }
                     
                     Spacer()
                     
                     Image(systemName: activity.image)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
+                        .font(.system(size: 38))
+                        
                     
                 }
                 
 //                .padding()
                 
                 Text(activity.amount)
-                    .font(.system(size: 24))
+                    .font(.system(size: 40))
                 
             }
             
             .padding()
             .cornerRadius(15)
         }
+        
+        .frame(width: 300, height: 170)
+        .aspectRatio(contentMode: .fit)
         
     }
 }

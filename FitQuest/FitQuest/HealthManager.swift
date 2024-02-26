@@ -23,6 +23,8 @@ class HealthManager: ObservableObject
     
     @Published var activites: [String: Activity] = [:]
     
+    @Published var retrieveSteps = 0.0
+    
     init()
     {
         
@@ -56,8 +58,10 @@ class HealthManager: ObservableObject
             
             let stepCount = quantity.doubleValue(for: .count())
             
+            self.retrieveSteps = stepCount
+            
             //Steps 0
-            let activity = Activity(id: 0, title: "Steps Today", subtitle: "Goal 10,000", image: "figure.walk", amount: stepCount.formattedString())
+            let activity = Activity(id: 0, title: "Today's Steps", subtitle: "Goal: 10,000", image: "figure.walk", amount: stepCount.formattedString())
             
             
             DispatchQueue.main.async
@@ -66,20 +70,13 @@ class HealthManager: ObservableObject
             }
             
             
-            print(stepCount.formattedString())
+//            print(stepCount.formattedString())
         }
         
         healthStore.execute(query)
         
-        
     }
     
-//    func fetchTodayCalories()
-//    {
-//        
-//        
-//        
-//    }
     
 }
     
