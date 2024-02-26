@@ -42,10 +42,7 @@ struct ActivityCardView: View
                         Text(activity.title)
                             .font(.system(size: 30))
                             .bold()
-                        
-//                        Text(activity.subtitle)
-//                            .font(.system(size: 15))
-//                            .foregroundColor(.white)
+                                              
                     }
                     
                     Spacer()
@@ -57,7 +54,6 @@ struct ActivityCardView: View
                     
                 }
                 
-//                .padding()
                 
                 Text(activity.amount)
                     .font(.system(size: 40))

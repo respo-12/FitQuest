@@ -25,20 +25,6 @@ struct TrackView: View
                 .font(.system(size: 30))
                 .padding(.bottom)
             
-            //Displays today's current steps
-            
-            //--------------------------------------(Old Two Columns)--------------------------------------------------
-            
-//            LazyVGrid(columns: Array(repeating: GridItem(spacing: 20), count: 2)) 
-//            {
-//                ForEach(manager.activites.sorted(by: { $0.value.id < $1.value.id }), id: \.key) { item in ActivityCardView(activity: item.value)}
-//                
-//            }
-//            
-//            .padding(.horizontal)
-//            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .center)
-            
-            //-----------------------------------------------------------------------------------------------------------------------
             
             //Display's current today steps
             if let firstActivity = manager.activites.sorted(by: { $0.value.id < $1.value.id }).first
@@ -52,7 +38,6 @@ struct TrackView: View
             
             
             //Progress Circle
-            
             GeometryReader { geometry in
                 ZStack
                 {
@@ -88,12 +73,12 @@ struct TrackView: View
         {
             manager.fetchTodaySteps()
         }
-            
         
     }
     
     
     
+    //To format the date at the top of the view
     private let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM d, yyyy"
