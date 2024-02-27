@@ -20,10 +20,10 @@ struct FitQuestTabView: View {
         {
             Text("FitQuest")
                 .bold()
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .font(.title)
         }
         
-        TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/)
+        TabView(selection: $selectedTab)
         {
             
         

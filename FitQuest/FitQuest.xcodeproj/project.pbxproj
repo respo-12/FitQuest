@@ -15,6 +15,7 @@
 		AB5FE23B2B8701DB00E42492 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */; };
 		AB5FE23D2B882A0B00E42492 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23C2B882A0B00E42492 /* SleepView.swift */; };
 		AB5FE23F2B8881DB00E42492 /* DietView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5FE23E2B8881DB00E42492 /* DietView.swift */; };
+		ABE7BD5D2B8C73B00075721B /* FoodEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE7BD5C2B8C73B00075721B /* FoodEntryView.swift */; };
 		ABEF7DBF2B74C160009FB313 /* FitQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DBE2B74C160009FB313 /* FitQuestApp.swift */; };
 		ABEF7DC12B74C160009FB313 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF7DC02B74C160009FB313 /* DemoView.swift */; };
 		ABEF7DC32B74C162009FB313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABEF7DC22B74C162009FB313 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		AB5FE23C2B882A0B00E42492 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
 		AB5FE23E2B8881DB00E42492 /* DietView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietView.swift; sourceTree = "<group>"; };
+		ABE7BD5C2B8C73B00075721B /* FoodEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryView.swift; sourceTree = "<group>"; };
 		ABEF7DBB2B74C160009FB313 /* FitQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEF7DBE2B74C160009FB313 /* FitQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitQuestApp.swift; sourceTree = "<group>"; };
 		ABEF7DC02B74C160009FB313 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				AB5FE2302B86D30800E42492 /* ProfileView.swift */,
 				AB5FE2382B86E9A700E42492 /* HealthManager.swift */,
 				AB5FE23A2B8701DB00E42492 /* ActivityCardView.swift */,
+				ABE7BD5C2B8C73B00075721B /* FoodEntryView.swift */,
 			);
 			path = FitQuest;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				ABEF7DC12B74C160009FB313 /* DemoView.swift in Sources */,
 				AB5FE2372B86DEBF00E42492 /* TrackView.swift in Sources */,
 				ABEF7DBF2B74C160009FB313 /* FitQuestApp.swift in Sources */,
+				ABE7BD5D2B8C73B00075721B /* FoodEntryView.swift in Sources */,
 				AB5FE2392B86E9A700E42492 /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

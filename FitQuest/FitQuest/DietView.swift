@@ -9,20 +9,52 @@ import SwiftUI
 
 struct DietView: View
 {
-    
+    @State private var caloriesConsumed: Double = 500
     @State private var proteinConsumed: Double = 80
     @State private var fatConsumed: Double = 50
     @State private var carbohydratesConsumed: Double = 200
     
+    
+    let caloriesGoal: Double = 1000
     let proteinGoal: Double = 100
     let fatGoal: Double = 70
     let carbohydratesGoal: Double = 250
     
+    @State private var isAddingMeal = false
+    
     var body: some View
     {
         
-        VStack(alignment: .center)
+        VStack(alignment: .leading)
         {
+            
+            HStack {
+                Spacer()
+                Button(action: 
+                {
+                    isAddingMeal = true
+                }) {
+                    Text("Add Food/Meal")
+                        .foregroundColor(.blue)
+                        .font(.headline)
+                        .padding(8)
+                        .background(Color.white)
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+                }
+                .padding()
+                .popover(isPresented: $isAddingMeal) 
+                {
+                    // Content for meal entry popover
+                    FoodEntryView()
+                }
+                
+            }
+            
+            
             Text("Today's Macros")
                 .font(.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -40,7 +72,7 @@ struct DietView: View
                     
                     Text("Carbs")
                     
-                    Text("10 g")
+                    Text("\(carbohydratesConsumed) g")
                     
                 }
                 .padding()
@@ -60,7 +92,7 @@ struct DietView: View
                     
                     Text("Fats")
                     
-                    Text("60 g")
+                    Text("\(fatConsumed) g")
                     
                 }
                 .padding()
@@ -80,7 +112,7 @@ struct DietView: View
                     
                     Text("Protein")
                     
-                    Text("30 g")
+                    Text("\(proteinConsumed) g")
                     
                 }
                 .padding()
@@ -90,6 +122,8 @@ struct DietView: View
                     )
                 
             }
+            .padding()
+            .padding(.bottom)
             
 //            Spacer()
             
@@ -101,6 +135,19 @@ struct DietView: View
 //                .padding(.bottom)
 //            
 //            Spacer()
+            
+            
+            VStack {
+                Text("Calories")
+                ProgressView(value: caloriesConsumed, total: caloriesGoal)
+                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: caloriesConsumed, goal: caloriesGoal)))
+                HStack {
+                    Text("Current: \(Int(caloriesConsumed))")
+                    Spacer()
+                    Text("Goal: \(Int(caloriesGoal))")
+                }
+            }
+            .padding(.bottom)
             
             
             VStack {

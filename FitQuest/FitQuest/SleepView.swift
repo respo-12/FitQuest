@@ -14,6 +14,7 @@ struct SleepView: View
     
     @State private var selectedTime = Date()
     
+//    @Binding var selection: String
     
     @State private var showingAlert = false
 
@@ -37,6 +38,7 @@ struct SleepView: View
             Button("Get My Personalized BedTime")
             {
                 showingAlert = true
+//                selection = "Sleep"
             }
             .alert(isPresented: $showingAlert)
             {
