@@ -9,6 +9,10 @@ import SwiftUI
 
 struct ProfileView: View
 {
+    
+    @State private var profileAlert = false
+    
+    
     @State private var name: String = ""
     
     @State private var selectedGenderIndex = 0
@@ -127,6 +131,15 @@ struct ProfileView: View
                 {
                     // Button to save user information
                     saveUserInfo()
+                    profileAlert = true
+                }
+                .alert(isPresented: $profileAlert)
+                {
+                    Alert(
+                        title: Text("Profile Saved"),
+                        message: Text("Your Changes Have Been Saved"),
+                        dismissButton: .default(Text("Got it!"))
+                    )
                 }
                 
                 .padding()

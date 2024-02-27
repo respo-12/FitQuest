@@ -14,6 +14,8 @@ struct TrackView: View
     
     @State private var currentDate = Date()
     
+    @State private var goalCount: Double = 10000
+    
     var body: some View
     {
         
@@ -34,7 +36,12 @@ struct TrackView: View
             }
             
             
-            let goalCount = 10000.0
+            if(manager.retrieveSteps >= goalCount)
+            {
+                Text("Reached Step Count Goal For Today!")
+                    .font(.system(size: 20))
+                    .padding(.bottom)
+            }
             
             
             //Progress Circle
@@ -59,10 +66,42 @@ struct TrackView: View
                         
                         Text("Goal: \(Int(goalCount))")
                             .font(.system(size: 20))
+                        
+                        HStack {
+                            
+                            Button(action: 
+                            {
+                                // Decrease the goal count by 1000, ensuring it doesn't go below 0
+                                goalCount = max(goalCount - 1000, 0)
+                            }) 
+                            {
+                                Text("Decrease Goal")
+                                    .font(.headline)
+                            }
+                            .padding()
+                            
+                            
+                            
+                            Button(action:
+                            {
+                                goalCount += 1000
+                            })
+                            {
+                                Text("Increase Goal")
+                                    .font(.headline)
+                            }
+                            .padding()
+                        }
+                        
+                        
                     }
+                    
+                    
                     
                 }
                 .padding()
+                
+                
             }
             
                         
