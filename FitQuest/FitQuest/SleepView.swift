@@ -9,12 +9,9 @@ import SwiftUI
 
 struct SleepView: View 
 {
-//    @State private var selectedHour = 7 // Default hour
-//    @State private var selectedMinute = 0 // Default minute
     
     @State private var selectedTime = Date()
     
-//    @Binding var selection: String
     
     @State private var showingAlert = false
 

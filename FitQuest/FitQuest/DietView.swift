@@ -9,16 +9,21 @@ import SwiftUI
 
 struct DietView: View
 {
-    @State private var caloriesConsumed: Double = 500
-    @State private var proteinConsumed: Double = 80
-    @State private var fatConsumed: Double = 50
-    @State private var carbohydratesConsumed: Double = 200
+    @State private var caloriesConsumed: Int = 0
+    @State private var proteinConsumed: Int = 0
+    @State private var fatConsumed: Int = 0
+    @State private var carbohydratesConsumed: Int = 0
+    
+    //Set goal for the person in macros
+    let caloriesGoal: Int = 2000
+    let proteinGoal: Int = 150
+    let fatGoal: Int = 67
+    let carbohydratesGoal: Int = 200
     
     
-    let caloriesGoal: Double = 1000
-    let proteinGoal: Double = 100
-    let fatGoal: Double = 70
-    let carbohydratesGoal: Double = 250
+    //Store added food items
+    @State private var foodItems: [FoodItem] = []
+    
     
     @State private var isAddingMeal = false
     
@@ -49,7 +54,14 @@ struct DietView: View
                 .popover(isPresented: $isAddingMeal) 
                 {
                     // Content for meal entry popover
-                    FoodEntryView()
+//                    FoodEntryView()
+                    FoodEntryView(addFoodItem: { foodItem in
+                                    foodItems.append(foodItem)
+                        
+                                    // Call a function to update consumed values based on the new food item
+                                    updateConsumedValues(with: foodItem)
+                                    isAddingMeal = false // Dismiss the popover after adding the food item
+                                })
                 }
                 
             }
@@ -65,14 +77,14 @@ struct DietView: View
                 
                 VStack
                 {
-                    Image("Carbs")
+                    Image("Protein")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60)
                     
-                    Text("Carbs")
+                    Text("Protein")
                     
-                    Text("\(carbohydratesConsumed) g")
+                    Text("\(Int(proteinConsumed)) g")
                     
                 }
                 .padding()
@@ -82,6 +94,7 @@ struct DietView: View
                     )
                 
                 Spacer()
+                
                 
                 VStack
                 {
@@ -92,7 +105,7 @@ struct DietView: View
                     
                     Text("Fats")
                     
-                    Text("\(fatConsumed) g")
+                    Text("\(Int(fatConsumed)) g")
                     
                 }
                 .padding()
@@ -103,16 +116,17 @@ struct DietView: View
                 
                 Spacer()
                 
+                
                 VStack
                 {
-                    Image("Protein")
+                    Image("Carbs")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60)
                     
-                    Text("Protein")
+                    Text("Carbs")
                     
-                    Text("\(proteinConsumed) g")
+                    Text("\(Int(carbohydratesConsumed)) g")
                     
                 }
                 .padding()
@@ -121,26 +135,16 @@ struct DietView: View
                         .fill(.gray.opacity((0.1)))
                     )
                 
+                
             }
             .padding()
             .padding(.bottom)
             
-//            Spacer()
-            
-//            Text("Protein")
-//                .padding()
-//
-//            ProgressView(value: proteinConsumed, total: proteinGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: proteinConsumed, goal: proteinGoal)))
-//                .padding(.bottom)
-//            
-//            Spacer()
-            
             
             VStack {
                 Text("Calories")
-                ProgressView(value: caloriesConsumed, total: caloriesGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: caloriesConsumed, goal: caloriesGoal)))
+                ProgressView(value: Double(caloriesConsumed), total: Double(caloriesGoal))
+                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(caloriesConsumed), goal: Double(caloriesGoal))))
                 HStack {
                     Text("Current: \(Int(caloriesConsumed))")
                     Spacer()
@@ -152,8 +156,8 @@ struct DietView: View
             
             VStack {
                 Text("Protein")
-                ProgressView(value: proteinConsumed, total: proteinGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: proteinConsumed, goal: proteinGoal)))
+                ProgressView(value: Double(proteinConsumed), total: Double(proteinGoal))
+                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(proteinConsumed), goal: Double(proteinGoal))))
                 HStack {
                     Text("Current: \(Int(proteinConsumed))")
                     Spacer()
@@ -163,17 +167,11 @@ struct DietView: View
             .padding(.bottom)
             
             
-//            Text("Fats")
-//                .padding()
-//            
-//            ProgressView(value: fatConsumed, total: fatGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: fatConsumed, goal: fatGoal)))
-//                .padding(.bottom)
             
             VStack {
                 Text("Fat")
-                ProgressView(value: fatConsumed, total: fatGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: fatConsumed, goal: fatGoal)))
+                ProgressView(value: Double(fatConsumed), total: Double(fatGoal))
+                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(fatConsumed), goal: Double(fatGoal))))
                 HStack {
                     Text("Current: \(Int(fatConsumed))")
                     Spacer()
@@ -182,20 +180,12 @@ struct DietView: View
             }
             .padding(.bottom)
             
-            
-//            Spacer()
-            
-//            Text("Carbohydrates")
-//                .padding()
-//            
-//            ProgressView(value: carbohydratesConsumed, total: carbohydratesGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: carbohydratesConsumed, goal: carbohydratesGoal)))
-//                .padding(.bottom)
+        
             
             VStack {
                 Text("Carbohydrates")
-                ProgressView(value: carbohydratesConsumed, total: carbohydratesGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: carbohydratesConsumed, goal: carbohydratesGoal)))
+                ProgressView(value: Double(carbohydratesConsumed), total: Double(carbohydratesGoal))
+                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(carbohydratesConsumed), goal: Double(carbohydratesGoal))))
                 HStack {
                     Text("Current: \(Int(carbohydratesConsumed))")
                     Spacer()
@@ -213,6 +203,33 @@ struct DietView: View
             return value > goal ? .red : .blue
         }
     
+    
+    
+    //Reset the macros at the start of the day
+    func resetMacrosTime()
+    {
+        let startOfToday = Calendar.current.startOfDay(for: Date())
+        
+        let currentDate = Date()
+        
+        if startOfToday != currentDate 
+        {
+            caloriesConsumed = 0
+            proteinConsumed = 0
+            fatConsumed = 0
+            carbohydratesConsumed = 0
+        }
+    }
+    
+    
+    
+    //Update macros consumed based on food item added
+    private func updateConsumedValues(with foodItem: FoodItem) {
+        caloriesConsumed += foodItem.foodCalories
+        proteinConsumed += foodItem.foodProtein
+        fatConsumed += foodItem.foodFat
+        carbohydratesConsumed += foodItem.foodCarbohydrates
+    }
     
 }
 

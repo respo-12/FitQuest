@@ -18,6 +18,14 @@ struct FoodEntryView: View
     @State private var mealFats = ""
     
     
+    @State private var calories: Int = 0
+    @State private var protein: Int = 0
+    @State private var carbohydrates: Int = 0
+    @State private var fats: Int = 0
+    
+    var addFoodItem: (FoodItem) -> Void
+    
+    
     var body: some View
     {
         
@@ -31,18 +39,23 @@ struct FoodEntryView: View
             
             TextField("Calories", text: $mealCalories)
                 .padding()
+                .keyboardType(.numberPad)
             
             TextField("Protein (g)", text: $mealProtein)
                 .padding()
+                .keyboardType(.numberPad)
             
             TextField("Carbohydrates (g)", text: $mealCarbohydrates)
                 .padding()
+                .keyboardType(.numberPad)
             
             TextField("Fats (g)", text: $mealFats)
                 .padding()
+                .keyboardType(.numberPad)
             
-            Button(action: {
-                // Save meal information and dismiss popover
+            Button(action: 
+            {
+                saveItem()
             }) {
                 Text("Save")
                     .foregroundColor(.white)
@@ -55,9 +68,52 @@ struct FoodEntryView: View
         .padding()
         
         
+        
     }
+    
+    func saveItem()
+    {
+        if let caloriesVal = Int(mealCalories)
+        {
+            calories = caloriesVal
+        }
+        
+        if let proteinVal = Int(mealProtein)
+        {
+            protein = proteinVal
+        }
+        
+        if let carbValue = Int(mealCarbohydrates)
+        {
+            carbohydrates = carbValue
+        }
+        
+        if let fatsValue = Int(mealFats)
+        {
+            fats = fatsValue
+        }
+        
+        
+        let foodItem = FoodItem(foodName: mealName, foodCalories: calories, foodProtein: protein, foodFat: fats, foodCarbohydrates: carbohydrates)
+        
+        
+        addFoodItem(foodItem)
+    }
+    
+    
 }
 
-#Preview {
-    FoodEntryView()
+
+struct FoodItem 
+{
+    let foodName: String
+    let foodCalories: Int
+    let foodProtein: Int
+    let foodFat: Int
+    let foodCarbohydrates: Int
+    
 }
+
+//#Preview {
+//    FoodEntryView()
+//}

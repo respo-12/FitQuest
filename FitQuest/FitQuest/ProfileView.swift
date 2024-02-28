@@ -148,12 +148,7 @@ struct ProfileView: View
             
         }
         
-        
-        //        .padding()
-        //
-        //        Text("Profile")
-        //            .font(.title)
-        //            .padding()
+
         
     }
     
