@@ -17,6 +17,8 @@ struct FoodEntryView: View
     @State private var mealCarbohydrates = ""
     @State private var mealFats = ""
     
+    @State private var starRating = 3
+    
     
     @State private var calories: Int = 0
     @State private var protein: Int = 0
@@ -52,6 +54,16 @@ struct FoodEntryView: View
             TextField("Fats (g)", text: $mealFats)
                 .padding()
                 .keyboardType(.numberPad)
+            
+            Text("Rating (1-5)")
+                .padding(.top)
+            
+            Picker("Star Rating", selection: $starRating)
+            {
+                ForEach(1..<6) { rating in
+                    Text("\(rating)")
+                }
+            }
             
             Button(action: 
             {
@@ -94,7 +106,7 @@ struct FoodEntryView: View
         }
         
         
-        let foodItem = FoodItem(foodName: mealName, foodCalories: calories, foodProtein: protein, foodFat: fats, foodCarbohydrates: carbohydrates)
+        let foodItem = FoodItem(foodName: mealName, foodCalories: calories, foodProtein: protein, foodFat: fats, foodCarbohydrates: carbohydrates, foodRating: starRating)
         
         
         addFoodItem(foodItem)
@@ -111,6 +123,7 @@ struct FoodItem
     let foodProtein: Int
     let foodFat: Int
     let foodCarbohydrates: Int
+    let foodRating: Int
     
 }
 
