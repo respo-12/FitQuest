@@ -155,18 +155,35 @@ struct ProfileView: View
     func saveUserInfo()
     {
         
-        if let ageValue = Int(ageString)
-        {
-            age = ageValue
-        }
+        // Save user information
         
-        if let weightValue = Int(weightString) {
-            weight = weightValue
-        }
+//        if let ageValue = Int(ageString)
+//        {
+//            age = ageValue
+//        }
         
-        if let heightValue = Int(heightString) {
-            height = heightValue
-        }
+        if let ageValue = Int(ageString), !ageString.isEmpty {
+                age = ageValue
+                UserDefaults.standard.set(age, forKey: "Age")
+            }
+        
+//        if let weightValue = Int(weightString) {
+//            weight = weightValue
+//        }
+        
+        if let weightValue = Int(weightString), !weightString.isEmpty {
+                weight = weightValue
+                UserDefaults.standard.set(weight, forKey: "Weight")
+            }
+        
+//        if let heightValue = Int(heightString) {
+//            height = heightValue
+//        }
+        
+        if let heightValue = Int(heightString), !heightString.isEmpty {
+                height = heightValue
+                UserDefaults.standard.set(height, forKey: "Height")
+            }
         
         //Save Gender
         let selectedGender = genders[selectedGenderIndex]
@@ -176,13 +193,18 @@ struct ProfileView: View
         let healthGoal = healthGoals[healthGoalIndex]
                 UserDefaults.standard.set(healthGoal, forKey: "Health Goal")
         
-        // Save user information
-        UserDefaults.standard.set(name, forKey: "Name")
-        UserDefaults.standard.set(age, forKey: "Age")
-        UserDefaults.standard.set(dateOfBirth, forKey: "DateOfBirth")
-        UserDefaults.standard.set(weight, forKey: "Weight")
-        UserDefaults.standard.set(height, forKey: "Height")
         
+        //Checks if they are empty
+        if !name.isEmpty {
+                UserDefaults.standard.set(name, forKey: "Name")
+            }
+       
+    
+        if !dateOfBirth.isEmpty {
+                UserDefaults.standard.set(dateOfBirth, forKey: "DateOfBirth")
+            }
+        
+        //No need to validate - never use in other views
         UserDefaults.standard.set(homeAddress, forKey: "HomeAddress")
         UserDefaults.standard.set(workAddress, forKey: "WorkAddress")
         

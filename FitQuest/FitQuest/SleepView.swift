@@ -25,13 +25,13 @@ struct SleepView: View
                 .multilineTextAlignment(.center)
                 .padding()
             
-            
+            //User selects hour and minute for wakeup time
             DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
                             .datePickerStyle(WheelDatePickerStyle())
                             .labelsHidden()
                             .padding()
             
-            
+            //Gives an alert/popup message that gives the user a recommended bedtime/sleeping time
             Button("Get My Personalized BedTime")
             {
                 showingAlert = true
@@ -39,15 +39,94 @@ struct SleepView: View
             }
             .alert(isPresented: $showingAlert)
             {
-                Alert(
-                    title: Text("Recommended Sleep Time"),
-                    message: Text("Your recommended sleep time is 10:00 PM"),
-                    dismissButton: .default(Text("Got it!"))
-                )
+                //If age is stored
+                if let savedAge = UserDefaults.standard.object(forKey: "Age") as? Int
+                {
+                    let recommendedBedtime = calculateRecommendedBedtime()
+                    
+                    return Alert(
+                        title: Text("Recommended Sleep Time"),
+                        message: Text("Your recommended sleep time is \(recommendedBedtime)"),
+                        dismissButton: .default(Text("Got it!"))
+                    )
+                } 
+                //If age is not stored
+                else
+                {
+                    return Alert(
+                        title: Text("Enter Age Information"),
+                        message: Text("Input your age in profile to receieve personalized recommended bedtime"),
+                        dismissButton: .default(Text("Got it!"))
+                    )
+                }
+                
+                
             }
             
         }
     }
+    
+    
+    //Function to determine how much sleep the user needs based on age
+    func recommendedSleep(forAge age: Int) -> Double {
+        // based on CDC values and recommendations
+        var recommendedHours: Double = 0
+
+        // under 5
+        if age <= 5 {
+            recommendedHours = 13
+        }
+        // between 6 and 12
+        else if age > 5 && age <= 12 {
+            recommendedHours = 10.5
+        }
+        // between 13 and 18
+        else if age > 12 && age <= 18 {
+            recommendedHours = 9
+        }
+        // between 19 and 60
+        else if age > 18 && age <= 60 {
+            recommendedHours = 7
+        }
+        // between 61 and 64
+        else if age > 60 && age <= 64 {
+            recommendedHours = 8
+        }
+        // over 60
+        else {
+            recommendedHours = 7.5
+        }
+       
+        return recommendedHours
+    }
+    
+    
+    //Uses recommeded hours of sleep and adjusts based on wake up time
+    func calculateRecommendedBedtime() -> String {
+        // Extract the hour and minute components from the selected wake-up time
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: selectedTime)
+        guard let hour = components.hour, let minute = components.minute else {
+            return "Error"
+        }
+        
+        // Calculate the wake-up time in decimal hours
+        let wakeUpTimeDecimal = Double(hour) + Double(minute) / 60.0
+        
+        // Calculate the recommended sleep time based on the wake-up time and user's age
+        
+        let age = UserDefaults.standard.integer(forKey: "Age")
+        let recommendedSleepHours = recommendedSleep(forAge: age)
+        let recommendedBedtimeDecimal = wakeUpTimeDecimal - recommendedSleepHours
+        
+        // Format the recommended bedtime as a string in HH:MM AM/PM format
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        let recommendedBedtimeDate = calendar.date(bySettingHour: Int(recommendedBedtimeDecimal), minute: Int((recommendedBedtimeDecimal.truncatingRemainder(dividingBy: 1)) * 60), second: 0, of: selectedTime)!
+        return formatter.string(from: recommendedBedtimeDate)
+    }
+    
+    
 }
 
 struct WakeUpTimeSelectionView_Previews: PreviewProvider {
