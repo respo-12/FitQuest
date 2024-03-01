@@ -5,6 +5,7 @@
 //  Created by Ethan Lukas on 2/22/24.
 //
 
+import Foundation
 import SwiftUI
 
 struct DietView: View
@@ -15,10 +16,30 @@ struct DietView: View
     @State private var carbohydratesConsumed: Int = 0
     
     //Set goal for the person in macros
-    let caloriesGoal: Int = 2000
-    let proteinGoal: Int = 150
-    let fatGoal: Int = 67
-    let carbohydratesGoal: Int = 200
+    @State private var caloriesGoal: Double = 2000
+    @State private var proteinGoal: Double = 150
+    @State private var fatGoal: Double = 67
+    @State private var carbohydratesGoal: Double = 200
+    
+    
+    @State private var age: Int = 20
+    
+    @State private var weightLB: Double = 170
+    
+    @State private var heightIN: Double = 70
+    
+    @State private var activityNum: String = ""
+    
+    @State private var activityLevel: Double = 1.55
+    
+//    let caloriesGoal: Int = 2000
+//    let proteinGoal: Int = 150
+//    let fatGoal: Int = 67
+//    let carbohydratesGoal: Int = 200
+    
+    
+//    let resultBMR = 0
+//    let resultTDEE = 0
     
     
     //Store added food items
@@ -32,6 +53,7 @@ struct DietView: View
         
         VStack(alignment: .leading)
         {
+            
             
             HStack {
                 Spacer()
@@ -196,6 +218,19 @@ struct DietView: View
             
         }
         
+        .onAppear()
+        {
+            let macroResult = calculateMacros()
+            
+            let resultBMR = macroResult.bmr
+            let resultTDEE = macroResult.tdee
+            carbohydratesGoal = macroResult.carbsGrams
+            proteinGoal = macroResult.proteinGrams
+            fatGoal = macroResult.fatsGrams
+            caloriesGoal = (carbohydratesGoal * 4) + (proteinGoal * 4) + (fatGoal * 9)
+            
+        }
+        
     }
     
     
@@ -230,6 +265,120 @@ struct DietView: View
         fatConsumed += foodItem.foodFat
         carbohydratesConsumed += foodItem.foodCarbohydrates
     }
+    
+//    func saveBMRandTDEE()
+//    {
+//        UserDefaults.standard.set(resultBMR, forKey: "BMR")
+//        UserDefaults.standard.set(resultTDEE, forKey: "TDEE")
+//    }
+//    
+    
+    func findActiveLevelNum(level: String) -> Double
+    {
+        
+        var ActivityLevelNum: Double = 1.0
+        
+        if level == "Sedentary"
+        {
+            ActivityLevelNum = 1.2
+        }
+            
+        else if level == "Lightly Active"
+        {
+            ActivityLevelNum = 1.375
+        }
+        
+        else if level == "Moderately Active"
+        {
+            ActivityLevelNum = 1.55
+        }
+        
+        else if level == "Very Active"
+        {
+            ActivityLevelNum = 1.725
+        }
+        
+        else
+        {
+            ActivityLevelNum = 1.9
+        }
+        
+        return ActivityLevelNum
+        
+        
+    }
+    
+    
+    
+
+    func calculateMacros() -> (bmr: Double, tdee: Double, carbsGrams: Double, proteinGrams: Double, fatsGrams: Double)
+    {
+                
+        //Retrieving user age
+        if let activeNumLevel = UserDefaults.standard.object(forKey: "ActiveLevel") as? String
+        {
+            activityNum = activeNumLevel
+            activityLevel = findActiveLevelNum(level: activityNum)
+        }
+        else
+        {
+            activityLevel = 1.55
+        }
+        
+        
+        //Retrieving user age
+        if let age1 = UserDefaults.standard.object(forKey: "Age") as? Int
+        {
+            age = age1
+        }
+        else
+        {
+            age = 20
+        }
+        
+        
+        //Retrieve user weight
+        if let weight1 = UserDefaults.standard.object(forKey: "Weight") as? Int
+        {
+            weightLB = Double(weight1)
+        }
+        else
+        {
+            weightLB = 160.0
+        }
+        
+        //Retrieve user height
+        if let height1 = UserDefaults.standard.object(forKey: "Height") as? Int
+        {
+            heightIN = Double(height1)
+        }
+        else
+        {
+            heightIN = 70.0
+        }
+        
+        // Convert weight from pounds to kilograms and height from inches to centimeters
+        let weightKG = weightLB * 0.453592
+        let heightCM = heightIN * 2.54
+       
+        // Calculate BMR
+        let bmr = 88.362 + (13.397 * weightKG) + (4.799 * heightCM) - (5.677 * Double(age))
+       
+        // Calculate TDEE
+        let tdee = bmr * activityLevel
+       
+        // Calculate Macronutrients
+        let carbsCalories = tdee * 0.40
+        let proteinCalories = tdee * 0.30
+        let fatsCalories = tdee * 0.30
+       
+        let carbsGrams = carbsCalories / 4
+        let proteinGrams = proteinCalories / 4
+        let fatsGrams = fatsCalories / 9
+       
+        return (bmr, tdee, carbsGrams, proteinGrams, fatsGrams)
+    }
+    
     
 }
 

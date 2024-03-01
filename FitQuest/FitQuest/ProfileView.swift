@@ -21,6 +21,9 @@ struct ProfileView: View
     @State private var foodPreference = "None of the above"
     let foodPreferenceList = ["Vegan", "Vegetarian", "Gluten-Free", "None of the above"]
     
+    @State private var activeLevel = "Moderately Active"
+    let activeLevelList = ["Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Extra Active"]
+    
     @State private var dateOfBirth: String = ""
     @State private var ageString: String = ""
     @State private var weightString: String = ""
@@ -121,8 +124,17 @@ struct ProfileView: View
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
+                
+                Text("Activity Level:")
+                    .padding(.top, 10)
+                
+                Picker("Select Active Level", selection: $activeLevel) {
+                    ForEach(activeLevelList, id: \.self) { option in
+                        Text(option)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
 
-    
                 
                 Spacer()
                 
@@ -211,6 +223,10 @@ struct ProfileView: View
         UserDefaults.standard.set(restaurant, forKey: "Restaurant")
         UserDefaults.standard.set(gym, forKey: "Gym")
         
+        UserDefaults.standard.set(foodPreference, forKey: "FoodPreference")
+        
+        UserDefaults.standard.set(activeLevel, forKey: "ActiveLevel")
+
             
     }
     
