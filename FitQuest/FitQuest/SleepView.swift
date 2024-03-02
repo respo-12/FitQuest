@@ -7,26 +7,17 @@
 
 import SwiftUI
 
-struct SleepView: View 
+struct SleepView: View
 {
-<<<<<<< HEAD
-//    @State private var selectedHour = 7 // Default hour
-//    @State private var selectedMinute = 0 // Default minute
     
     @State private var selectedTime = Date()
     
-//    @Binding var selection: String
-=======
-    
-    @State private var selectedTime = Date()
-    
->>>>>>> Ethan2
     
     @State private var showingAlert = false
 
-    var body: some View 
+    var body: some View
     {
-        VStack 
+        VStack
         {
             
             Text("Select Wake Up Time")
@@ -34,21 +25,13 @@ struct SleepView: View
                 .multilineTextAlignment(.center)
                 .padding()
             
-<<<<<<< HEAD
-            
-=======
             //User selects hour and minute for wakeup time
->>>>>>> Ethan2
             DatePicker("", selection: $selectedTime, displayedComponents: .hourAndMinute)
                             .datePickerStyle(WheelDatePickerStyle())
                             .labelsHidden()
                             .padding()
             
-<<<<<<< HEAD
-            
-=======
             //Gives an alert/popup message that gives the user a recommended bedtime/sleeping time
->>>>>>> Ethan2
             Button("Get My Personalized BedTime")
             {
                 showingAlert = true
@@ -56,13 +39,6 @@ struct SleepView: View
             }
             .alert(isPresented: $showingAlert)
             {
-<<<<<<< HEAD
-                Alert(
-                    title: Text("Recommended Sleep Time"),
-                    message: Text("Your recommended sleep time is 10:00 PM"),
-                    dismissButton: .default(Text("Got it!"))
-                )
-=======
                 //If age is stored
                 if let savedAge = UserDefaults.standard.object(forKey: "Age") as? Int
                 {
@@ -73,7 +49,7 @@ struct SleepView: View
                         message: Text("Your recommended sleep time is \(recommendedBedtime)"),
                         dismissButton: .default(Text("Got it!"))
                     )
-                } 
+                }
                 //If age is not stored
                 else
                 {
@@ -85,13 +61,10 @@ struct SleepView: View
                 }
                 
                 
->>>>>>> Ethan2
             }
             
         }
     }
-<<<<<<< HEAD
-=======
     
     
     //Function to determine how much sleep the user needs based on age
@@ -154,7 +127,6 @@ struct SleepView: View
     }
     
     
->>>>>>> Ethan2
 }
 
 struct WakeUpTimeSelectionView_Previews: PreviewProvider {

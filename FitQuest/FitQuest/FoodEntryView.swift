@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoodEntryView: View 
+struct FoodEntryView: View
 {
     
     // Properties to store meal information
@@ -17,8 +17,6 @@ struct FoodEntryView: View
     @State private var mealCarbohydrates = ""
     @State private var mealFats = ""
     
-<<<<<<< HEAD
-=======
     @State private var starRating = 3
     
     
@@ -29,7 +27,6 @@ struct FoodEntryView: View
     
     var addFoodItem: (FoodItem) -> Void
     
->>>>>>> Ethan2
     
     var body: some View
     {
@@ -44,20 +41,6 @@ struct FoodEntryView: View
             
             TextField("Calories", text: $mealCalories)
                 .padding()
-<<<<<<< HEAD
-            
-            TextField("Protein (g)", text: $mealProtein)
-                .padding()
-            
-            TextField("Carbohydrates (g)", text: $mealCarbohydrates)
-                .padding()
-            
-            TextField("Fats (g)", text: $mealFats)
-                .padding()
-            
-            Button(action: {
-                // Save meal information and dismiss popover
-=======
                 .keyboardType(.numberPad)
             
             TextField("Protein (g)", text: $mealProtein)
@@ -82,10 +65,9 @@ struct FoodEntryView: View
                 }
             }
             
-            Button(action: 
+            Button(action:
             {
                 saveItem()
->>>>>>> Ethan2
             }) {
                 Text("Save")
                     .foregroundColor(.white)
@@ -98,14 +80,6 @@ struct FoodEntryView: View
         .padding()
         
         
-<<<<<<< HEAD
-    }
-}
-
-#Preview {
-    FoodEntryView()
-}
-=======
         
     }
     
@@ -142,7 +116,7 @@ struct FoodEntryView: View
 }
 
 
-struct FoodItem 
+struct FoodItem
 {
     let foodName: String
     let foodCalories: Int
@@ -156,4 +130,3 @@ struct FoodItem
 //#Preview {
 //    FoodEntryView()
 //}
->>>>>>> Ethan2

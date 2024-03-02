@@ -5,26 +5,11 @@
 //  Created by Ethan Lukas on 2/22/24.
 //
 
-<<<<<<< HEAD
-=======
 import Foundation
->>>>>>> Ethan2
 import SwiftUI
 
 struct DietView: View
 {
-<<<<<<< HEAD
-    @State private var caloriesConsumed: Double = 500
-    @State private var proteinConsumed: Double = 80
-    @State private var fatConsumed: Double = 50
-    @State private var carbohydratesConsumed: Double = 200
-    
-    
-    let caloriesGoal: Double = 1000
-    let proteinGoal: Double = 100
-    let fatGoal: Double = 70
-    let carbohydratesGoal: Double = 250
-=======
     @State private var caloriesConsumed: Int = 0
     @State private var proteinConsumed: Int = 0
     @State private var fatConsumed: Int = 0
@@ -60,7 +45,6 @@ struct DietView: View
     //Store added food items
     @State private var foodItems: [FoodItem] = []
     
->>>>>>> Ethan2
     
     @State private var isAddingMeal = false
     
@@ -70,13 +54,10 @@ struct DietView: View
         VStack(alignment: .leading)
         {
             
-<<<<<<< HEAD
-=======
             
->>>>>>> Ethan2
             HStack {
                 Spacer()
-                Button(action: 
+                Button(action:
                 {
                     isAddingMeal = true
                 }) {
@@ -92,12 +73,9 @@ struct DietView: View
                         )
                 }
                 .padding()
-                .popover(isPresented: $isAddingMeal) 
+                .popover(isPresented: $isAddingMeal)
                 {
                     // Content for meal entry popover
-<<<<<<< HEAD
-                    FoodEntryView()
-=======
 //                    FoodEntryView()
                     FoodEntryView(addFoodItem: { foodItem in
                                     foodItems.append(foodItem)
@@ -106,7 +84,6 @@ struct DietView: View
                                     updateConsumedValues(with: foodItem)
                                     isAddingMeal = false // Dismiss the popover after adding the food item
                                 })
->>>>>>> Ethan2
                 }
                 
             }
@@ -122,24 +99,14 @@ struct DietView: View
                 
                 VStack
                 {
-<<<<<<< HEAD
-                    Image("Carbs")
-=======
                     Image("Protein")
->>>>>>> Ethan2
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60)
                     
-<<<<<<< HEAD
-                    Text("Carbs")
-                    
-                    Text("\(carbohydratesConsumed) g")
-=======
                     Text("Protein")
                     
                     Text("\(Int(proteinConsumed)) g")
->>>>>>> Ethan2
                     
                 }
                 .padding()
@@ -150,10 +117,7 @@ struct DietView: View
                 
                 Spacer()
                 
-<<<<<<< HEAD
-=======
                 
->>>>>>> Ethan2
                 VStack
                 {
                     Image("Fats")
@@ -163,11 +127,7 @@ struct DietView: View
                     
                     Text("Fats")
                     
-<<<<<<< HEAD
-                    Text("\(fatConsumed) g")
-=======
                     Text("\(Int(fatConsumed)) g")
->>>>>>> Ethan2
                     
                 }
                 .padding()
@@ -178,29 +138,17 @@ struct DietView: View
                 
                 Spacer()
                 
-<<<<<<< HEAD
-                VStack
-                {
-                    Image("Protein")
-=======
                 
                 VStack
                 {
                     Image("Carbs")
->>>>>>> Ethan2
                         .resizable()
                         .scaledToFit()
                         .frame(width: 60)
                     
-<<<<<<< HEAD
-                    Text("Protein")
-                    
-                    Text("\(proteinConsumed) g")
-=======
                     Text("Carbs")
                     
                     Text("\(Int(carbohydratesConsumed)) g")
->>>>>>> Ethan2
                     
                 }
                 .padding()
@@ -209,38 +157,16 @@ struct DietView: View
                         .fill(.gray.opacity((0.1)))
                     )
                 
-<<<<<<< HEAD
-=======
                 
->>>>>>> Ethan2
             }
             .padding()
             .padding(.bottom)
             
-<<<<<<< HEAD
-//            Spacer()
-            
-//            Text("Protein")
-//                .padding()
-//
-//            ProgressView(value: proteinConsumed, total: proteinGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: proteinConsumed, goal: proteinGoal)))
-//                .padding(.bottom)
-//            
-//            Spacer()
-            
-            
-            VStack {
-                Text("Calories")
-                ProgressView(value: caloriesConsumed, total: caloriesGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: caloriesConsumed, goal: caloriesGoal)))
-=======
             
             VStack {
                 Text("Calories")
                 ProgressView(value: Double(caloriesConsumed), total: Double(caloriesGoal))
                     .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(caloriesConsumed), goal: Double(caloriesGoal))))
->>>>>>> Ethan2
                 HStack {
                     Text("Current: \(Int(caloriesConsumed))")
                     Spacer()
@@ -252,13 +178,8 @@ struct DietView: View
             
             VStack {
                 Text("Protein")
-<<<<<<< HEAD
-                ProgressView(value: proteinConsumed, total: proteinGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: proteinConsumed, goal: proteinGoal)))
-=======
                 ProgressView(value: Double(proteinConsumed), total: Double(proteinGoal))
                     .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(proteinConsumed), goal: Double(proteinGoal))))
->>>>>>> Ethan2
                 HStack {
                     Text("Current: \(Int(proteinConsumed))")
                     Spacer()
@@ -268,25 +189,11 @@ struct DietView: View
             .padding(.bottom)
             
             
-<<<<<<< HEAD
-//            Text("Fats")
-//                .padding()
-//            
-//            ProgressView(value: fatConsumed, total: fatGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: fatConsumed, goal: fatGoal)))
-//                .padding(.bottom)
-            
-            VStack {
-                Text("Fat")
-                ProgressView(value: fatConsumed, total: fatGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: fatConsumed, goal: fatGoal)))
-=======
             
             VStack {
                 Text("Fat")
                 ProgressView(value: Double(fatConsumed), total: Double(fatGoal))
                     .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(fatConsumed), goal: Double(fatGoal))))
->>>>>>> Ethan2
                 HStack {
                     Text("Current: \(Int(fatConsumed))")
                     Spacer()
@@ -295,29 +202,12 @@ struct DietView: View
             }
             .padding(.bottom)
             
-<<<<<<< HEAD
-            
-//            Spacer()
-            
-//            Text("Carbohydrates")
-//                .padding()
-//            
-//            ProgressView(value: carbohydratesConsumed, total: carbohydratesGoal)
-//                .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: carbohydratesConsumed, goal: carbohydratesGoal)))
-//                .padding(.bottom)
-            
-            VStack {
-                Text("Carbohydrates")
-                ProgressView(value: carbohydratesConsumed, total: carbohydratesGoal)
-                    .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: carbohydratesConsumed, goal: carbohydratesGoal)))
-=======
         
             
             VStack {
                 Text("Carbohydrates")
                 ProgressView(value: Double(carbohydratesConsumed), total: Double(carbohydratesGoal))
                     .progressViewStyle(LinearProgressViewStyle(tint: determineBarColor(value: Double(carbohydratesConsumed), goal: Double(carbohydratesGoal))))
->>>>>>> Ethan2
                 HStack {
                     Text("Current: \(Int(carbohydratesConsumed))")
                     Spacer()
@@ -328,8 +218,6 @@ struct DietView: View
             
         }
         
-<<<<<<< HEAD
-=======
         .onAppear()
         {
             let macroResult = calculateMacros()
@@ -343,7 +231,6 @@ struct DietView: View
             
         }
         
->>>>>>> Ethan2
     }
     
     
@@ -352,8 +239,6 @@ struct DietView: View
         }
     
     
-<<<<<<< HEAD
-=======
     
     //Reset the macros at the start of the day
     func resetMacrosTime()
@@ -362,7 +247,7 @@ struct DietView: View
         
         let currentDate = Date()
         
-        if startOfToday != currentDate 
+        if startOfToday != currentDate
         {
             caloriesConsumed = 0
             proteinConsumed = 0
@@ -386,7 +271,7 @@ struct DietView: View
 //        UserDefaults.standard.set(resultBMR, forKey: "BMR")
 //        UserDefaults.standard.set(resultTDEE, forKey: "TDEE")
 //    }
-//    
+//
     
     func findActiveLevelNum(level: String) -> Double
     {
@@ -495,7 +380,6 @@ struct DietView: View
     }
     
     
->>>>>>> Ethan2
 }
 
 #Preview {
