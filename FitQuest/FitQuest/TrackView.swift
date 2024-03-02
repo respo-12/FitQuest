@@ -16,12 +16,17 @@ struct TrackView: View
     
     @State private var goalCount: Double = 10000
     
+    @State private var ratioVar: Double = 0
+    
+
+    
     var body: some View
     {
         
+        
         VStack(alignment: .center)
         {
-         
+            
             //Displays the current date
             Text("\(currentDate, formatter: dateFormatter)")
                 .font(.system(size: 30))
@@ -64,6 +69,10 @@ struct TrackView: View
                         Text(String(format: "%.0f", (manager.retrieveSteps / goalCount) * 100) + "%")
                             .font(.system(size: 30, weight: .bold))
                         
+                        
+//                        ratioVar = (manager.retrieveSteps / goalCount) * 100
+//                        updateRatio(upd: Double(manager.retrieveSteps / goalCount) * 100)
+                        
                         Text("Goal: \(Int(goalCount))")
                             .font(.system(size: 20))
                         
@@ -97,7 +106,6 @@ struct TrackView: View
                     }
                     
                     
-                    
                 }
                 .padding()
                 
@@ -111,6 +119,7 @@ struct TrackView: View
         .onAppear
         {
             manager.fetchTodaySteps()
+            saveRatioVar()
         }
         
     }
@@ -125,12 +134,19 @@ struct TrackView: View
         }()
     
     
+    func updateRatio(upd: Double)
+    {
+        ratioVar = upd
+    }
     
+    func saveRatioVar() 
+    {
+        ratioVar = (manager.retrieveSteps / goalCount) * 100
+        UserDefaults.standard.set(ratioVar, forKey: "RatioVar")
+    }
     
     
 }
-
-
 
 
 

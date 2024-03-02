@@ -43,10 +43,17 @@ struct ProfileView: View
     @State private var weight: Int = 0
     @State private var height: Int = 0
     
+    
+    @State private var lifestyleScore: Int = 78
+    
+    @State private var trackRatio: Double = 0.75
+    
+    @State private var dietRatio: Double = 0.75
+    
+//    @Binding var sharedRatio: Double
+    
     var body: some View
     {
-        
-        
         
         //Name, Age, Height, Home Address, Work Address, two other favorite places, DoB, gender
         
@@ -56,6 +63,10 @@ struct ProfileView: View
         {
             VStack
             {
+                
+                Text("Lifestyle Score: \(lifestyleScore)/100")
+                    .font(.system(size: 20))
+                    .padding(.bottom)
                 
                 TextField("First and Last Name", text: $name)
                     .padding()
@@ -160,9 +171,41 @@ struct ProfileView: View
             
         }
         
+        .onAppear()
+        {
+            lifestyleScore = getLifestyleScore()
+            
+        }
+        
 
         
     }
+    
+    
+    func getLifestyleScore() -> Int
+    {
+        if let calorie1 = UserDefaults.standard.object(forKey: "CalorieRatio") as? Double
+        {
+            dietRatio = calorie1
+        }
+        else
+        {
+            dietRatio = 0.75
+        }
+        
+        if let step1 = UserDefaults.standard.object(forKey: "RatioVar") as? Double
+        {
+            trackRatio = step1
+        }
+        else
+        {
+            trackRatio = 0.75
+        }
+        
+        return Int((trackRatio + dietRatio)/2)
+    }
+        
+    
     
     func saveUserInfo()
     {
@@ -232,6 +275,6 @@ struct ProfileView: View
     
 }
 
-#Preview {
-    ProfileView()
-}
+//#Preview {
+//    ProfileView()
+//}
