@@ -21,6 +21,12 @@ struct ProfileView: View
     @State private var foodPreference = "None of the above"
     let foodPreferenceList = ["Vegan", "Vegetarian", "Gluten-Free", "None of the above"]
     
+<<<<<<< HEAD
+=======
+    @State private var activeLevel = "Moderately Active"
+    let activeLevelList = ["Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Extra Active"]
+    
+>>>>>>> Ethan2
     @State private var dateOfBirth: String = ""
     @State private var ageString: String = ""
     @State private var weightString: String = ""
@@ -121,8 +127,22 @@ struct ProfileView: View
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
+<<<<<<< HEAD
 
     
+=======
+                
+                Text("Activity Level:")
+                    .padding(.top, 10)
+                
+                Picker("Select Active Level", selection: $activeLevel) {
+                    ForEach(activeLevelList, id: \.self) { option in
+                        Text(option)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+
+>>>>>>> Ethan2
                 
                 Spacer()
                 
@@ -148,18 +168,23 @@ struct ProfileView: View
             
         }
         
+<<<<<<< HEAD
         
         //        .padding()
         //
         //        Text("Profile")
         //            .font(.title)
         //            .padding()
+=======
+
+>>>>>>> Ethan2
         
     }
     
     func saveUserInfo()
     {
         
+<<<<<<< HEAD
         if let ageValue = Int(ageString)
         {
             age = ageValue
@@ -172,6 +197,37 @@ struct ProfileView: View
         if let heightValue = Int(heightString) {
             height = heightValue
         }
+=======
+        // Save user information
+        
+//        if let ageValue = Int(ageString)
+//        {
+//            age = ageValue
+//        }
+        
+        if let ageValue = Int(ageString), !ageString.isEmpty {
+                age = ageValue
+                UserDefaults.standard.set(age, forKey: "Age")
+            }
+        
+//        if let weightValue = Int(weightString) {
+//            weight = weightValue
+//        }
+        
+        if let weightValue = Int(weightString), !weightString.isEmpty {
+                weight = weightValue
+                UserDefaults.standard.set(weight, forKey: "Weight")
+            }
+        
+//        if let heightValue = Int(heightString) {
+//            height = heightValue
+//        }
+        
+        if let heightValue = Int(heightString), !heightString.isEmpty {
+                height = heightValue
+                UserDefaults.standard.set(height, forKey: "Height")
+            }
+>>>>>>> Ethan2
         
         //Save Gender
         let selectedGender = genders[selectedGenderIndex]
@@ -181,6 +237,7 @@ struct ProfileView: View
         let healthGoal = healthGoals[healthGoalIndex]
                 UserDefaults.standard.set(healthGoal, forKey: "Health Goal")
         
+<<<<<<< HEAD
         // Save user information
         UserDefaults.standard.set(name, forKey: "Name")
         UserDefaults.standard.set(age, forKey: "Age")
@@ -188,12 +245,33 @@ struct ProfileView: View
         UserDefaults.standard.set(weight, forKey: "Weight")
         UserDefaults.standard.set(height, forKey: "Height")
         
+=======
+        
+        //Checks if they are empty
+        if !name.isEmpty {
+                UserDefaults.standard.set(name, forKey: "Name")
+            }
+       
+    
+        if !dateOfBirth.isEmpty {
+                UserDefaults.standard.set(dateOfBirth, forKey: "DateOfBirth")
+            }
+        
+        //No need to validate - never use in other views
+>>>>>>> Ethan2
         UserDefaults.standard.set(homeAddress, forKey: "HomeAddress")
         UserDefaults.standard.set(workAddress, forKey: "WorkAddress")
         
         UserDefaults.standard.set(restaurant, forKey: "Restaurant")
         UserDefaults.standard.set(gym, forKey: "Gym")
         
+<<<<<<< HEAD
+=======
+        UserDefaults.standard.set(foodPreference, forKey: "FoodPreference")
+        
+        UserDefaults.standard.set(activeLevel, forKey: "ActiveLevel")
+
+>>>>>>> Ethan2
             
     }
     
