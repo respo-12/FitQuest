@@ -181,7 +181,7 @@ struct ProfileView: View
         
     }
     
-    
+    //Updates lifestyle score based on progress in steps and diet
     func getLifestyleScore() -> Int
     {
         if let calorie1 = UserDefaults.standard.object(forKey: "CalorieRatio") as? Double
