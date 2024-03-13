@@ -6,22 +6,44 @@
 //
 
 import SwiftUI
+import Firebase
+
+class Authentication: ObservableObject {
+    @Published var isLoggedin = false
+
+    init() {
+        FirebaseApp.configure()
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                self.isLoggedin = true
+            } else {
+                self.isLoggedin = false
+            }
+        }
+    }
+}
 
 @main
 struct FitQuestApp: App 
 {
     
     @StateObject var manager = HealthManager()
+    @StateObject var auth = Authentication()
     
-    var body: some Scene
-    {
-        
-        WindowGroup
+    var isLoggedin = false // Add a state to track login status
+
+
+
+        var body: some Scene
         {
-            FitQuestTabView()
-                .environmentObject(manager)
-                
-            
+            WindowGroup
+            {
+                if auth.isLoggedin {
+                    FitQuestTabView()
+                        .environmentObject(manager)
+                } else {
+                    ViewControllerWrapper()
+                }
+            }
         }
-    }
 }

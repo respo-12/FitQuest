@@ -13,6 +13,8 @@ struct FitQuestTabView: View {
     
     @State var selectedTab = "Home"
     
+    let viewController = ViewController()
+    
     var body: some View
     {
         //App name at at top
