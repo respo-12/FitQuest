@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DietView: View
 {
+    
+    //Stats for macros consumed so far
     @State private var caloriesConsumed: Int = 0
     @State private var proteinConsumed: Int = 0
     @State private var fatConsumed: Int = 0
@@ -32,15 +34,8 @@ struct DietView: View
     
     @State private var activityLevel: Double = 1.55
     
-//    let caloriesGoal: Int = 2000
-//    let proteinGoal: Int = 150
-//    let fatGoal: Int = 67
-//    let carbohydratesGoal: Int = 200
-    
-    
-//    let resultBMR = 0
-//    let resultTDEE = 0
-    
+    @State private var calorieRatio: Double = 0
+
     
     //Store added food items
     @State private var foodItems: [FoodItem] = []
@@ -76,7 +71,6 @@ struct DietView: View
                 .popover(isPresented: $isAddingMeal)
                 {
                     // Content for meal entry popover
-//                    FoodEntryView()
                     FoodEntryView(addFoodItem: { foodItem in
                                     foodItems.append(foodItem)
                         
@@ -220,6 +214,9 @@ struct DietView: View
         
         .onAppear()
         {
+            
+            saveCalorieVar()
+            
             let macroResult = calculateMacros()
             
             let resultBMR = macroResult.bmr
@@ -228,6 +225,9 @@ struct DietView: View
             proteinGoal = macroResult.proteinGrams
             fatGoal = macroResult.fatsGrams
             caloriesGoal = (carbohydratesGoal * 4) + (proteinGoal * 4) + (fatGoal * 9)
+            
+            UserDefaults.standard.set(resultBMR, forKey: "BMR")
+            UserDefaults.standard.set(resultTDEE, forKey: "TDEE")
             
         }
         
@@ -266,13 +266,13 @@ struct DietView: View
         carbohydratesConsumed += foodItem.foodCarbohydrates
     }
     
-//    func saveBMRandTDEE()
-//    {
-//        UserDefaults.standard.set(resultBMR, forKey: "BMR")
-//        UserDefaults.standard.set(resultTDEE, forKey: "TDEE")
-//    }
-//
+    func saveCalorieVar()
+    {
+        calorieRatio = (Double(caloriesConsumed)/caloriesGoal) * 100
+        UserDefaults.standard.set(calorieRatio, forKey: "CalorieRatio")
+    }
     
+    //Finds numerical activity level given the string chosen in the profile
     func findActiveLevelNum(level: String) -> Double
     {
         
@@ -378,6 +378,10 @@ struct DietView: View
        
         return (bmr, tdee, carbsGrams, proteinGrams, fatsGrams)
     }
+    
+    
+    
+    
     
     
 }
